@@ -11,11 +11,9 @@ import { handleApiCall, handleImage } from "./controllers/image.js";
 const db = knex({
   client: "pg",
   connection: {
-    host: "postgresql-aerodynamic-15889",
-    user: "postgres",
-    password: "rishabh123",
-    database: "smart-brain",
-  },
+    host: "process.env.DATABASE_URL",
+    ssl: true
+  }
 });
 
 const app = express();
