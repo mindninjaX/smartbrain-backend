@@ -11,9 +11,9 @@ import { handleApiCall, handleImage } from "./controllers/image.js";
 const db = knex({
   client: "pg",
   connection: {
-    connectString: process.env.DATABASE_URL,
-    ssl: true
-  }
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  },
 });
 
 const app = express();
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send('it is working!');
+  res.send("it is working!");
 });
 app.post("/signin", (req, res) => {
   signin(req, res, db, bcrypt);
